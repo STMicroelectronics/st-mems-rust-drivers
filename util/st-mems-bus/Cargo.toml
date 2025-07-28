@@ -1,0 +1,18 @@
+[package]
+name = "st-mems-bus"
+version = "0.1.0"
+edition = "2024"
+readme = "README.md"
+keywords = ["st", "no-std", "i2c", "spi", "embedded"]
+categories = ["embedded"]
+description = "Wrapper for I2C and SPI buses, providing a unified API to the underlying bus."
+license = "BSD 3-Clause License" 
+repository = "https://github.com/STMicroelectronics/st-mems-rust-drivers/tree/main/util/st-mems-bus"
+
+[dependencies]
+embedded-hal = "1.0.0"
+
+[features]
+default = ["spi", "i2c"]
+spi = []
+i2c = []
