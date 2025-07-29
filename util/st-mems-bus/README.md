@@ -1,6 +1,6 @@
-# Bus Library
+# st-mems-bus Library
 
-The Bus Library provides a unified and consistent API for accessing different types of communication buses. Currently, it supports both `SPI` and `I2C` buses, offering various modes for managing bus ownership and access.
+The st-mems-bus Library provides a unified and consistent API for accessing different types of communication buses. Currently, it supports both `SPI` and `I2C` buses, offering various modes for managing bus ownership and access.
 
 ## Access Modes
 
@@ -13,7 +13,7 @@ Add the library to your dependencies in `Cargo.toml`:
 
 ```toml
 [dependencies]
-bus = { path = "path_to_bus" }
+st-mems-bus = { path = "path_to_bus" }
 ```
 
 ## Features 
