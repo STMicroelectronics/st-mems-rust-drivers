@@ -1,0 +1,18 @@
+[package]
+name = "st-mem-bank-macro"
+version = "0.1.0"
+edition = "2024"
+readme = "README.md"
+license = "BSD 3-Clause License"
+keywords = ["st", "macro", "driver"]
+categories = ["embedded", "no-std"]
+description = "Simplifies memory state management for sensors with multiple memory banks by providing useful macros."
+repository = "https://github.com/STMicroelectronics/st-mems-rust-drivers/tree/main/util/st-mem-bank-macro"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = { version = "2.0", features = ["full", "extra-traits"] }
+quote = "1.0"
+proc-macro2 = "1.0"
