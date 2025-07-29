@@ -1,0 +1,18 @@
+[package]
+name = "st-mems-reg-config-conv"
+version = "0.1.0"
+edition = "2024"
+readme = "README.md"
+keywords = ["st", "no-std", "ucf", "json", "embedded"]
+categories = ["embedded", "no-std"]
+description = "A no_std-compatible library to convert MEMS Configuration Shared Types v2.0 into Rust code at build time."
+license = "BSD 3-Clause License" 
+#repository = 
+
+[features]
+default = []
+std = ["dep:serde_json", "dep:serde"]
+
+[dependencies]
+serde = {version = "1.0.219", features = ["derive"], optional = true }
+serde_json = { version = "1.0.140", optional = true}
