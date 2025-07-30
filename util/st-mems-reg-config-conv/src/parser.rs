@@ -143,7 +143,7 @@ pub fn generate_rs_from_json(input_file: &Path, output_file: &Path, array_name: 
     output.push_str(&format!("JSON file: {} \n", input_file.display()).to_string());
     output.push_str(&format!(r#"// Change build.rs script to change JSON source file"#).to_string());
     output.push_str(&format!("\nuse st_mems_reg_config_conv::ucf_entry::*;\n\n").to_string());
-    output.push_str(&format!("pub const {}: [UcfLineExt; ", array_name).to_string());
+    output.push_str(&format!("#[rustfmt::skip]\npub const {}: [UcfLineExt; ", array_name).to_string());
     output.push_str(&config_lines.len().to_string());
     output.push_str("] = [\n");
 
@@ -188,7 +188,7 @@ pub fn generate_rs_from_ucf(input_file: &Path, output_file: &Path, array_name: &
     output.push_str(&format!("ucf file: {} \n", input_file.display()).to_string());
     output.push_str(&format!(r#"// Change build.rs script to change ucf source file"#).to_string());
     output.push_str(&format!("\nuse st_mems_reg_config_conv::ucf_entry::*;\n\n").to_string());
-    output.push_str(&format!("pub const {}: [UcfLineExt; ", array_name).to_string());
+    output.push_str(&format!("#[rustfmt::skip]\npub const {}: [UcfLineExt; ", array_name).to_string());
     output.push_str(&ucf_lines.len().to_string());
     output.push_str("] = [\n");
 
