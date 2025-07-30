@@ -1,12 +1,12 @@
 use embedded_hal::spi::{SpiDevice, Operation};
 use crate::BusOperation;
 
-pub struct Spi<P> {
+pub struct SpiBus<P> {
    pub spi: P
 }
 
 #[allow(dead_code)]
-impl<P: SpiDevice> Spi<P> {
+impl<P: SpiDevice> SpiBus<P> {
     /// Create new Spi instance
     ///
     /// # Arguments
@@ -21,7 +21,7 @@ impl<P: SpiDevice> Spi<P> {
     }
 }
 
-impl<P: SpiDevice> BusOperation for Spi<P> {
+impl<P: SpiDevice> BusOperation for SpiBus<P> {
     type Error = P::Error;
 
     /// Reads bytes from the SPI bus.
