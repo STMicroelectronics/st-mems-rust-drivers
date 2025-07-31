@@ -6,7 +6,7 @@ readme = "README.md"
 keywords = ["st", "no-std", "fifo"]
 categories = ["embedded", "no-std"]
 description = "A set of utilities useful to interface with the ST MEMS TAG-based IMUs sensor FIFO"
-license = "BSD 3-Clause License" 
+license = "BSD-3-Clause"
 repository = "https://github.com/STMicroelectronics/st-mems-rust-drivers/tree/main/util/st-fifo-tool"
 
 [dependencies]

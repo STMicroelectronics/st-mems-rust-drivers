@@ -6,7 +6,7 @@ readme = "README.md"
 keywords = ["st", "no-std", "i2c", "spi", "embedded"]
 categories = ["embedded", "no-std"]
 description = "Wrapper for I2C and SPI buses, providing a unified API to the underlying bus."
-license = "BSD 3-Clause License" 
+license = "BSD-3-Clause"
 repository = "https://github.com/STMicroelectronics/st-mems-rust-drivers/tree/main/util/st-mems-bus"
 
 [dependencies]

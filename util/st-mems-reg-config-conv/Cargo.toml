@@ -6,7 +6,7 @@ readme = "README.md"
 keywords = ["st", "no-std", "ucf", "json", "embedded"]
 categories = ["embedded", "no-std"]
 description = "A no_std-compatible library to convert MEMS Configuration Shared Types v2.0 into Rust code at build time."
-license = "BSD 3-Clause License"
+license = "BSD-3-Clause"
 repository = "https://github.com/STMicroelectronics/st-mems-rust-drivers/tree/main/util/st-mems-reg-config-conv"
 
 [features]
