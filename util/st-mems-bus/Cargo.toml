@@ -1,6 +1,6 @@
 [package]
 name = "st-mems-bus"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2024"
 readme = "README.md"
 keywords = ["st", "no-std", "i2c", "spi", "embedded"]
