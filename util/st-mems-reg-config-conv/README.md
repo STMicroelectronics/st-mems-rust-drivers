@@ -1,4 +1,11 @@
-# st-mems-reg-config-conv Library
+# st-mems-reg-config-conv
+[![Crates.io][crates-badge]][crates-url]
+[![BSD 3-Clause licensed][bsd-badge]][bsd-url]
+
+[crates-badge]: https://img.shields.io/crates/v/st-mems-reg-config-conv
+[crates-url]: https://crates.io/crates/st-mems-reg-config-conv
+[bsd-badge]: https://img.shields.io/crates/l/st-mems-reg-config-conv
+[bsd-url]: https://opensource.org/licenses/BSD-3-Clause
 
 The Registers Configuration Converter is designed to facilitate the conversion of JSON/UCF registers configuration files, generated using STMicroelectronics tools, into Rust code. This library streamlines the process of integrating device configurations into Rust projects, supporting no_std environment.
 
@@ -44,3 +51,9 @@ parser::generate_rs_from_json(&input_file, &output_file, "JsonEntries");
 ## Usage in no_std Projects
 
 The Registers Configuration Converter is designed to be used in no_std projects by default. However, the parsers require linking to the standard library, necessitating the library's inclusion as both a regular dependency and a build dependency. In a std environment, this dual import is not necessary.
+
+------
+
+**More information: [http://www.st.com](http://st.com/MEMS)**
+
+**Copyright © 2025 STMicroelectronics**
