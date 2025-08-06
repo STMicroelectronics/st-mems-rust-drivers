@@ -1,4 +1,11 @@
 # st-mem-bank-macro
+[![Crates.io][crates-badge]][crates-url]
+[![BSD 3-Clause licensed][bsd-badge]][bsd-url]
+
+[crates-badge]: https://img.shields.io/crates/v/st-mem-bank-macro
+[crates-url]: https://crates.io/crates/st-mem-bank-macro
+[bsd-badge]: https://img.shields.io/crates/l/st-mem-bank-macro
+[bsd-url]: https://opensource.org/licenses/BSD-3-Clause
 
 This crate simplifies implementing memory state management for sensors. Some sensors have a register (called **MemBank**) that can change the address space, enabling access on special registers while restricting access to others during that state. Additionally, it streamlines register access over communication buses such as I2C or SPI.
 
@@ -154,3 +161,6 @@ An example is:
 #[adv_register(base_address = AdvPage::_0, address = EmbAdv0Reg::SflpGameGbiasxL, access_type = Lsm6dsv16x, generics = 2)]
 pub struct SflpGameGbiasXYZ(pub [u16; 3]);
 ```
+**More information: [http://www.st.com](http://st.com/MEMS)**
+
+**Copyright © 2025 STMicroelectronics**
