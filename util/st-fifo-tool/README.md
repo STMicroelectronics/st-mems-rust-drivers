@@ -1,10 +1,19 @@
-## st-fifo-tool Library
+# st-fifo-tool
+[![Crates.io][crates-badge]][crates-url]
+[![BSD 3-Clause licensed][bsd-badge]][bsd-url]
+
+[crates-badge]: https://img.shields.io/crates/v/st-fifo-tool
+[crates-url]: https://crates.io/crates/st-fifo-tool
+[bsd-badge]: https://img.shields.io/crates/l/st-fifo-tool
+[bsd-url]: https://opensource.org/licenses/BSD-3-Clause
 
 This repository contains a set of utilities useful to interface with the ST MEMS TAG-based IMUs sensor FIFO: it provides the capability to decode and decompress the data samples.
 
+## Api Example
+
 The APIs are the following:
 
-```[rust]
+```rust
 // Create a st_fifo_tool config:
 let config = st_fifo_tool::Config {
     device: st_fifo_tool::DeviceType::...,
@@ -58,5 +67,5 @@ This utility is structured as follows:
 
 **More information: [http://www.st.com](http://st.com/MEMS)**
 
-**Copyright © 2022 STMicroelectronics**
+**Copyright © 2025 STMicroelectronics**
 
