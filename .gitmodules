@@ -4,3 +4,6 @@
 [submodule "lsm6dsv16x"]
 	path = lsm6dsv16x
 	url = https://github.com/STMicroelectronics/lsm6dsv16x-rs
+[submodule "lis2duxs12"]
+	path = lis2duxs12
+	url = https://github.com/STMicroelectronics/lis2duxs12-rs
