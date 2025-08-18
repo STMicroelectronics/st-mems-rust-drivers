@@ -1,3 +1,6 @@
 [submodule "lsm6dsv320x"]
 	path = lsm6dsv320x
 	url = https://github.com/STMicroelectronics/lsm6dsv320x-rs
+[submodule "lsm6dsv16x"]
+	path = lsm6dsv16x
+	url = https://github.com/STMicroelectronics/lsm6dsv16x-rs
