@@ -13,3 +13,6 @@
 [submodule "lis2mdl"]
 	path = lis2mdl
 	url = https://github.com/STMicroelectronics/lis2mdl-rs
+[submodule "lsm6dsv80x"]
+	path = lsm6dsv80x
+	url = https://github.com/STMicroelectronics/lsm6dsv80x-rs
