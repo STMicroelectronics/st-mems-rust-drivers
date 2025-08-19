@@ -22,3 +22,6 @@
 [submodule "lsm6dso16is"]
 	path = lsm6dso16is
 	url = https://github.com/STMicroelectronics/lsm6dso16is-rs
+[submodule "ism330is"]
+	path = ism330is
+	url = https://github.com/STMicroelectronics/ism330is-rs
