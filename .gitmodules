@@ -43,3 +43,6 @@
 [submodule "lps22hh"]
 	path = lps22hh
 	url = https://github.com/STMicroelectronics/lps22hh-rs
+[submodule "stts22h"]
+	path = stts22h
+	url = https://github.com/STMicroelectronics/stts22h-rs
