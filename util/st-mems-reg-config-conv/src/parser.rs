@@ -7,6 +7,8 @@ use std::vec::Vec;
 use std::string::String;
 use serde::Deserialize;
 use crate::ucf_entry::{MemsUcfOp, UcfLineExt};
+use std::ffi::CStr;
+use std::os::raw::c_char;
 
 #[derive(Deserialize)]
 #[allow(dead_code)]
@@ -74,6 +76,42 @@ struct JsonData {
     application: Application,
     description: String,
     sensors: Vec<Sensor>,
+}
+
+#[repr(C)]
+pub enum FileType {
+    Json,
+    Ucf
+}
+
+#[unsafe(no_mangle)]
+pub extern "C" fn generate_rs(
+    input_file: *const c_char,
+    output_file: *const c_char,
+    array_name: *const c_char,
+    sensor_id: *const c_char,
+    file_type: FileType,
+) -> i32 {
+
+    // Check for null pointers
+    if input_file.is_null() || output_file.is_null() || array_name.is_null() || sensor_id.is_null() {
+        return -1; // error code
+    }
+
+    let input_file = unsafe { CStr::from_ptr(input_file) }.to_str().unwrap();
+    let output_file = unsafe { CStr::from_ptr(output_file) }.to_str().unwrap();
+    let array_name = unsafe { CStr::from_ptr(array_name) }.to_str().unwrap();
+    let sensor_id = unsafe { CStr::from_ptr(sensor_id) }.to_str().unwrap();
+
+    let input_path = Path::new(input_file);
+    let output_path = Path::new(output_file);
+
+    match file_type {
+        FileType::Json => generate_rs_from_json(input_path, output_path, array_name, sensor_id, false),
+        FileType::Ucf => generate_rs_from_ucf(input_path, output_path, array_name),
+    };
+
+    0
 }
 
 pub fn generate_rs_from_json(input_file: &Path, output_file: &Path, array_name: &str, sensor_id: &str, verbose: bool) {

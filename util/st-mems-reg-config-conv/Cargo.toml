@@ -9,6 +9,10 @@ description = "A no_std-compatible library to convert MEMS Configuration Shared 
 license = "BSD-3-Clause"
 repository = "https://github.com/STMicroelectronics/st-mems-rust-drivers/tree/main/util/st-mems-reg-config-conv"
 
+[lib]
+name = "st_mems_reg_config_conv"
+crate-type = ["cdylib"]
+
 [features]
 default = []
 std = ["dep:serde_json", "dep:serde"]
