@@ -10,3 +10,6 @@
 [submodule "lis2dux12"]
 	path = lis2dux12
 	url = https://github.com/STMicroelectronics/lis2dux12-rs
+[submodule "lis2mdl"]
+	path = lis2mdl
+	url = https://github.com/STMicroelectronics/lis2mdl-rs
