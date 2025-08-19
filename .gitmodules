@@ -37,3 +37,6 @@
 [submodule "iis2mdc"]
 	path = iis2mdc
 	url = https://github.com/STMicroelectronics/iis2mdc-rs
+[submodule "ilps22qs"]
+	path = ilps22qs
+	url = https://github.com/STMicroelectronics/ilps22qs-rs
