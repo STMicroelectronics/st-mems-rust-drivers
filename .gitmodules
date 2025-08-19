@@ -31,3 +31,6 @@
 [submodule "iis2dlpc"]
 	path = iis2dlpc
 	url = https://github.com/STMicroelectronics/iis2dlpc-rs
+[submodule "iis2dulpx"]
+	path = iis2dulpx
+	url = https://github.com/STMicroelectronics/iis2dulpx-rs
