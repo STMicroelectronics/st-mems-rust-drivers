@@ -19,3 +19,6 @@
 [submodule "lps22df"]
 	path = lps22df
 	url = https://github.com/STMicroelectronics/lps22df-rs
+[submodule "lsm6dso16is"]
+	path = lsm6dso16is
+	url = https://github.com/STMicroelectronics/lsm6dso16is-rs
