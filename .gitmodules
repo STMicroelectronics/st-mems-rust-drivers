@@ -25,3 +25,6 @@
 [submodule "ism330is"]
 	path = ism330is
 	url = https://github.com/STMicroelectronics/ism330is-rs
+[submodule "ism330dhcx"]
+	path = ism330dhcx
+	url = https://github.com/STMicroelectronics/ism330dhcx-rs
