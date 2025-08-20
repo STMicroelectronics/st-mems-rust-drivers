@@ -9,7 +9,7 @@ pub mod i2c;
 #[cfg(feature = "spi")]
 pub mod spi;
 
-const CHUNK_SIZE: usize = 255;
+const CHUNK_SIZE: usize = 256;
 
 pub trait BusOperation {
     type Error: Debug;
@@ -24,18 +24,14 @@ pub trait BusOperation {
     }
     #[inline]
     fn write_to_register(&mut self, reg: u8, buf: &[u8]) -> Result<(), Self::Error> {
-        let size = buf.len();
-        let mut write_size: usize;
         let mut tmp: [u8; CHUNK_SIZE + 1] = [0; CHUNK_SIZE + 1];
-        for i in (0..size).step_by(CHUNK_SIZE - 1) {
-            write_size = if size - i >= CHUNK_SIZE - 1 {
-                CHUNK_SIZE - 1
-            } else {
-                size - i
-            };
-            tmp[0] = reg + (i / (CHUNK_SIZE - 1)) as u8;
-            tmp[1..(write_size + 1)].copy_from_slice(&buf[i..(write_size + i)]);
-            self.write_bytes(&tmp[..1 + write_size])?;
+        let mut reg = reg;
+        for chunk in buf.chunks(CHUNK_SIZE) {
+            tmp[0] = reg;
+            tmp[1..1 + chunk.len()].copy_from_slice(chunk);
+            self.write_bytes(&tmp[..1 + chunk.len()])?;
+
+            reg = reg.wrapping_add(chunk.len() as u8);
         }
         Ok(())
     }
