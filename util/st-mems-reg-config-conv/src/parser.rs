@@ -45,7 +45,6 @@ enum ConfigType {
     Write,
     #[serde(rename = "delay")]
     Delay,
-    // Add other types as needed
 }
 
 #[derive(Deserialize)]
@@ -66,7 +65,6 @@ struct Output {
     len: String,
     reg_addr: String,
     reg_name: String,
-    // results
 }
 
 #[derive(Deserialize)]
@@ -74,7 +72,7 @@ struct Output {
 struct JsonData {
     json_format: JsonFormat,
     application: Application,
-    description: String,
+    description: Option<String>,
     sensors: Vec<Sensor>,
 }
 
@@ -208,12 +206,16 @@ pub fn generate_rs_from_json(input_file: &Path, output_file: &Path, array_name: 
     output.push_str("] = [\n");
 
     for config_line in &config_lines {
-        let line = format!(
-            "   UcfLineExt {{ op: MemsUcfOp::{}, address: 0x{:02X}, data: 0x{:02X} }},\n",
-            config_line.op.to_string(),
-            config_line.address,
-            config_line.data
-        );
+        let line = match config_line.op {
+            MemsUcfOp::Delay => &format!(
+                "   UcfLineExt {{ op: MemsUcfOp::{}, address: 0x{:02X}, data: {} }},\n",
+                config_line.op.to_string(), config_line.address, config_line.data
+            ),
+            _ => &format!(
+                "   UcfLineExt {{ op: MemsUcfOp::{}, address: 0x{:02X}, data: 0x{:02X} }},\n",
+                config_line.op.to_string(), config_line.address, config_line.data
+            )
+        };
         output.push_str(&line);
     }
 
