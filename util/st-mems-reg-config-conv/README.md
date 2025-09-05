@@ -18,7 +18,7 @@ Include the Registers Configuration Converter as a dependency in your Cargo.toml
 
 ```[Toml]
 [dependencies]
-st-mems-reg-config-conv = {path = "path_to_lib"}
+st-mems-reg-config-conv = { version = "1.0.1" }
 ```
 
 ### Step 2: Enable std Features for Build
@@ -27,7 +27,7 @@ For the build process std is required by the parser. But the library could still
 
 ```[Toml]
 [dependencies]
-st-mems-reg-config-conv = {path = "path_to_lib", features = ['std']}
+st-mems-reg-config-conv = { version = "1.0.1", features = ['std'] }
 ```
 
 ### Step 3: Build script Integration
