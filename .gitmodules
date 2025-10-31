@@ -46,3 +46,6 @@
 [submodule "stts22h"]
 	path = stts22h
 	url = https://github.com/STMicroelectronics/stts22h-rs
+[submodule "ism6hg256x"]
+	path = ism6hg256x
+	url = git@github.com:STMicroelectronics/ism6hg256x-rs.git
