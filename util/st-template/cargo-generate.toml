@@ -1,0 +1,56 @@
+[template]
+cargo_generate_version = ">=0.10.0"
+
+[placeholders.framework]
+type = "string"
+prompt = "Which framework would you like to use?"
+choices = ["stm32rs", "embassy"]
+default = "embassy"
+
+[placeholders.mcu]
+type = "string"
+prompt = "Which STM32 MCU are you targeting?"
+default = "stm32f401re"
+
+[placeholders.sensor]
+type = "string"
+prompt = "Which sensor do you want?"
+choices = [
+    "no_sensor",
+    "lps22hh",
+    "lsm6dso16is",
+    "lsm6dsv16x",
+    "lsm6dsv320x",
+    "lsm6dsv80x",
+    "iis2dlpc",
+    "iis2dulpx",
+    "iis2mdc",
+    "ilps22qs",
+    "ism330dhcx",
+    "ism330is",
+    "lis2dux12",
+    "lis2duxs12",
+    "lis2mdl",
+    "lps22df",
+    "ism6hg256x"
+]
+default = "no_sensor"
+
+[conditional.'framework == "stm32rs"']
+ignore = [
+    "defmt.toml"
+]
+
+[conditional.'framework == "embassy"']
+ignore = [
+    "memory.x"
+]
+
+
+[conditional.'sensor == "no_sensor"']
+ignore = [
+    "src/who_am_i.rs"
+]
+
+[hooks]
+pre = ["pre-script.rhai"]

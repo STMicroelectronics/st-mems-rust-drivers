@@ -1,0 +1,3 @@
+[defmt]
+# defmt logging level
+DEFMT_LOG = "debug"

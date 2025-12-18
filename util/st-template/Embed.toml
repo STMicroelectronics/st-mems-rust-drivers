@@ -1,0 +1,25 @@
+[default.probe]
+protocol = "Swd"
+speed = 4000
+
+[default.flashing]
+enabled = true
+halt_afterwards = false
+
+[default.reset]
+enabled = true
+halt_afterwards = false
+
+[default.general]
+chip = "{{mcu}}"
+log_level = "INFO"
+
+[default.rtt]
+enabled = true
+up_mode = "BlockIfFull"
+timeout = 3000
+
+# Optional GDB server configuration
+[default.gdb]
+enabled = false
+gdb_connection_string = "127.0.0.1:3333"

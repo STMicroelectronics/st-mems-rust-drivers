@@ -1,0 +1,68 @@
+[package]
+name = "{{project-name}}"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "{{project-name}}"
+
+[[example]]
+name = "i2c"
+path = "examples/i2c.rs"
+
+[[example]]
+name = "who_am_i"
+path = "examples/who_am_i.rs"
+
+[dependencies]
+cortex-m-rt = "0.7"
+panic-halt = "0.2"
+
+{% if framework == "stm32rs" -%}
+cortex-m = "0.7"
+# STM32 HAL dependencies
+{% if mcu == "stm32f401re" -%}
+stm32f4xx-hal = { version = "0.21", features = ["stm32f401", "defmt"] }
+{% endif -%}
+nb = "1.0"
+panic-probe = { version = "1.0.0", features = ["print-defmt"] }
+{% endif -%}
+
+{% if sensor != "no_sensor" -%}
+{{sensor}}-rs = "1.0.0"
+{% endif -%}
+
+defmt = "0.3"
+defmt-rtt = "0.4"
+
+{% if framework == "embassy" -%}
+cortex-m = { version = "0.7", features = ["inline-asm", "critical-section-single-core"] }
+# Embassy dependencies
+embassy-stm32 = { version = "0.1", features = ["{{mcu}}", "time-driver-any", "exti", "memory-x"] }
+embassy-executor = { version = "0.6", features = ["arch-cortex-m", "executor-thread", "defmt", "integrated-timers"] }
+embassy-time = { version = "0.3", features = ["defmt", "defmt-timestamp-uptime", "tick-hz-32_768"] }
+embassy-futures = "0.1"
+static_cell = "2"
+{% endif -%}
+
+[build-dependencies]
+reqwest = { version = "0.12", features = ["blocking"] }
+
+# Optional features
+[features]
+default = []
+
+# Profile optimizations
+[profile.release]
+codegen-units = 1
+debug = 2
+debug-assertions = false
+incremental = false
+lto = true
+opt-level = 3
+overflow-checks = false
+
+[profile.dev]
+debug = true
+lto = false
+opt-level = 1
