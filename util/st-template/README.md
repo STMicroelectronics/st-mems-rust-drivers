@@ -40,14 +40,15 @@ This template includes several examples demonstrating common embedded peripheral
 
 ### Available Examples
 
-- **blink** - Basic LED blinking (PC13)
 - **i2c** - I2C communication and device scanning (PB8/PB9)
-- **uart** - UART communication (PA9/PA10)
-- **pwm** - PWM output for LED brightness control (PA8)
+- **who_am_i** - Get device id through I2C (PB8/PB9)
 
 ### Running Examples
 
 ```bash
+# Run the main (blinking led)
+cargo run
+
 # Run the I2C example
 cargo run --example i2c --release
 
@@ -55,7 +56,7 @@ cargo run --example i2c --release
 
 {%- else %}
 # Run WhoAmI example
-cargo run --example whoAmI --release
+cargo run --example who_am_i --release
 
 {%- endif %}
 ```
@@ -64,10 +65,9 @@ cargo run --example whoAmI --release
 
 | Example | Pins Used | Description |
 |---------|-----------|-------------|
-| blink   | PC13      | Onboard LED (most STM32 boards) |
+| main    | PA5      | Onboard LED (most STM32 boards) |
 | i2c     | PB8 (SCL), PB9 (SDA) | I2C1 interface |
-| uart    | PA9 (TX), PA10 (RX) | USART1 interface |
-| pwm     | PA8       | TIM1_CH1 PWM output |
+| who_am_i| PB8 (SCL), PB9 (SDA) | I2C1 interface |
 
 ## Project Structure
 

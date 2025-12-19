@@ -23,6 +23,16 @@ Every *sensor driver* folder contains the following:
 - `xxxxxxx-rs/examples`: This folder contains self-contained example projects to test the sensor. It may be necessary to modify the pin configuration or the I2C/SPI address as needed. The folder name of each examples includes the board used to test the sensor.
 - `xxxxxxx-rs/README`: Contains additional info about the specific driver.
 
+### 1.c - Getting started
+
+A template is available in the `util` folder to help get started quickly with these drivers. The [cargo-generate](https://crates.io/crates/cargo-generate) tool may be used to configure a basic project environment by running:
+
+```bash
+cargo generate --git https://github.com/STMicroelectronics/st-mems-rust-drivers util/st-template
+```
+
+This template allows customization of the starting project by selecting the desired Nucleo board, framework ([Embassy](https://crates.io/crates/embassy-stm32) or [stm32-rs](https://github.com/stm32-rs)), and sensor. It also includes examples showing how to use I2C communication.
+
 ------
 
 # 2 - Integration details
@@ -216,4 +226,3 @@ When using supported STMicroelectronics evaluation boards, the schematics provid
 **More information: [http://www.st.com](http://st.com/MEMS)**
 
 **Copyright (C) 2025 STMicroelectronics**
-
