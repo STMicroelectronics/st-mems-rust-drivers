@@ -26,7 +26,7 @@ st-mems-reg-config-conv = { version = "1.0.2" }
 For the build process std is required by the parser. But the library could still compile for no_std projects.
 
 ```[Toml]
-[dependencies]
+[build-dependencies]
 st-mems-reg-config-conv = { version = "1.0.2", features = ['std'] }
 ```
 
@@ -48,9 +48,25 @@ let output_file = Path::new("src/rs_file_output");
 parser::generate_rs_from_json(&input_file, &output_file, "JsonEntries");
 ```
 
-## Usage in no_std Projects
+### Usage in no_std Projects
 
 The Registers Configuration Converter is designed to be used in no_std projects by default. However, the parsers require linking to the standard library, necessitating the library's inclusion as both a regular dependency and a build dependency. In a std environment, this dual import is not necessary.
+
+## Use in C code
+
+To use this library from C, built it with the std feature enabled:
+
+```[bash]
+cargo build --release --features std
+```
+
+The compiled library will be located under `target/<target-triple>/`.
+You can then link this library from your C code using the header provided in the `include` directory.
+
+```[c]
+#include "st_mems_reg_config_conv.h"
+```
+
 
 ------
 

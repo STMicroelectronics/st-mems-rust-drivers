@@ -11,6 +11,7 @@ repository = "https://github.com/STMicroelectronics/st-mems-rust-drivers/tree/ma
 
 [lib]
 name = "st_mems_reg_config_conv"
+crate-type = ["lib", "staticlib", "cdylib"]
 
 [features]
 default = []
