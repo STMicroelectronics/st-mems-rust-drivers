@@ -1,4 +1,5 @@
-use super::{BusOperation, Operation, SpiDevice, bisync};
+use super::{BusOperation, Operation, SpiDevice};
+use maybe_async::maybe_async;
 
 pub struct SpiBus<P> {
     pub spi: P,
@@ -20,7 +21,7 @@ impl<P: SpiDevice> SpiBus<P> {
     }
 }
 
-#[bisync]
+#[maybe_async(AFIT)]
 impl<P: SpiDevice> BusOperation for SpiBus<P> {
     type Error = P::Error;
 
