@@ -1,5 +1,4 @@
-use super::{BusOperation, I2c, SevenBitAddress};
-use maybe_async::maybe_async;
+use super::{BusOperation, I2c, SevenBitAddress, bisync};
 
 pub struct I2cBus<T: I2c> {
     pub i2c: T,
@@ -23,7 +22,7 @@ impl<T: I2c> I2cBus<T> {
     }
 }
 
-#[maybe_async(AFIT)]
+#[bisync]
 impl<T: I2c> BusOperation for I2cBus<T> {
     type Error = T::Error;
 

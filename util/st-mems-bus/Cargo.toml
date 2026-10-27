@@ -10,12 +10,11 @@ license = "BSD-3-Clause"
 repository = "https://github.com/STMicroelectronics/st-mems-rust-drivers/tree/main/util/st-mems-bus"
 
 [dependencies]
+bisync = "0.3.0"
 embedded-hal = "1.0.0"
 embedded-hal-async = "1.0.0"
-maybe-async = "0.2.11"
 
 [features]
 default = ["spi", "i2c"]
-is_sync = ["maybe-async/is_sync"]
 spi = []
 i2c = []
