@@ -116,7 +116,7 @@ impl<'a, T> Quote<'a, T> where T: QuoteOutput {
         quote! {
             #input
 
-            #[maybe_async::maybe_async(AFIT)]
+            #[bisync]
             impl<B: BusOperation #timer_long #multi> RegisterOperation<#access_type , Error<B::Error>> for #struct_name {
                 async fn read (sensor: &mut #access_type) -> Result<Self, Error<B::Error>> {
                     let mut buff = [#init; 1];
@@ -179,7 +179,7 @@ impl<'a, T> Quote<'a, T> where T: QuoteOutput {
         quote! {
             #input
 
-            #[maybe_async::maybe_async(AFIT)]
+            #[bisync]
             impl<B: BusOperation #timer_long #multi> RegisterOperation<#access_type , Error<B::Error>> for #struct_name {
                 async fn read (sensor: &mut #access_type ) -> Result<Self, Error<B::Error>> {
                     let mut buff = [#init; #buffer_size];
@@ -261,7 +261,7 @@ impl<'a, T> Quote<'a, T> where T: QuoteOutput {
         quote! {
             #input
 
-            #[maybe_async::maybe_async(AFIT)]
+            #[bisync]
             impl<B: BusOperation #timer_long #multi> RegisterOperation<#access_type , Error<B::Error>> for #struct_name {
                 async fn read (sensor: &mut #access_type ) -> Result<Self, Error<B::Error>> {
                     let mut buff = [0; #buffer_size_str];
