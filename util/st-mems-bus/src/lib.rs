@@ -2,7 +2,7 @@
 
 #[path = "."]
 pub mod asynchronous {
-    use bisync::asynchronous::*;
+    use bisync2::asynchronous::*;
     use embedded_hal_async::i2c::{I2c, SevenBitAddress};
     use embedded_hal_async::spi::{Operation, SpiDevice};
 
@@ -21,7 +21,7 @@ pub mod asynchronous {
 
 #[path = "."]
 pub mod blocking {
-    use bisync::synchronous::*;
+    use bisync2::synchronous::*;
     use embedded_hal::i2c::{I2c, SevenBitAddress};
     use embedded_hal::spi::{Operation, SpiDevice};
 
