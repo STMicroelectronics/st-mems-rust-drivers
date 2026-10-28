@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.1] - 2026-10-26
+
+
+### Features
+- Use the maintained bisync2 crate in place of the retired bisync
+
+
 ## [2.0.0] - 2026-01-27
 
 
